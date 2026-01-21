@@ -33,4 +33,9 @@ public class MainController : Controller
 
         return View(model);
     }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
 }
