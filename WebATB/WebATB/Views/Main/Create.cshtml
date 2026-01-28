@@ -1,13 +1,23 @@
-﻿@{
+﻿@using WebATB.Models.Users
+@model UserCreateModel
+@{
     Layout="MainLayout"; // Не використовуємо Layout
 }
 
 <h1 class="text-center">Додати користувача</h1>
 
-<form>
+<form asp-action="Create">
+
     <div class="mb-3">
-        <label for="name" class="form-label">Ім'я'</label>
-        <input type="text" class="form-control" id="name">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Створити</button>

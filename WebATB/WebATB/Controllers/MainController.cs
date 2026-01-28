@@ -34,8 +34,20 @@ public class MainController : Controller
         return View(model);
     }
 
+    [HttpGet] //метод для відображення сторінки створення нового користувача
     public IActionResult Create()
     {
         return View();
+    }
+    [HttpPost]
+    public IActionResult Create(UserCreateModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        //якщо модель валідна, то дані буде зберігати у список
+        //і переходимо на іншу сторінку
+        return RedirectToAction(nameof(Index));
     }
 }
