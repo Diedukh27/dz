@@ -74,6 +74,22 @@ public class MainController : Controller
             item.Image=fileName;
         }
         list.Add(item);
+                
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var item = list.SingleOrDefault(x => x.Id == id);
+        return View(item);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(UserItemModel user)
+    {
+        var item = list.SingleOrDefault(x => x.Id == user.Id);
+        list.Remove(item);
         return RedirectToAction(nameof(Index));
     }
 }
