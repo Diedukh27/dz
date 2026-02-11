@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -9,5 +9,20 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
+
+	<ItemGroup>  <!-- Група NuGet-пакетів для проєкту -->
+		 <!-- Пакет для підтримки міграцій та інструментів дизайну EF Core -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<!-- Інструменти для роботи з EF Core через CLI (Add-Migration, Update-Database) -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<!-- Провайдер PostgreSQL для Entity Framework Core -->
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+	</ItemGroup>
 
 </Project>
